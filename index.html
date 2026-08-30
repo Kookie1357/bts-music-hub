@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTS Music Hub 💜</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#09070f;color:#fff;min-height:100vh}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:rgba(9,7,15,.92);backdrop-filter:blur(12px);z-index:5;border-bottom:1px solid #211b30}
+.logo{font-size:25px;font-weight:800;color:#d8b4ff}
+nav a{color:#ddd;text-decoration:none;margin-left:22px;font-size:14px}
+nav a:hover{color:#d8b4ff}
+.hero{padding:90px 7% 55px;background:radial-gradient(circle at 75% 30%,#6f35a8 0,#25143b 30%,transparent 62%),linear-gradient(135deg,#0b0812,#171021)}
+.badge{display:inline-block;padding:8px 13px;border:1px solid #69469a;border-radius:30px;color:#dcbcff;font-size:12px;margin-bottom:20px}
+h1{font-size:clamp(42px,7vw,82px);line-height:.95;max-width:850px}
+.hero p{margin-top:22px;color:#c9c1d3;max-width:600px;line-height:1.7}
+.btn{display:inline-block;margin-top:28px;background:#a56be8;color:#fff;text-decoration:none;padding:13px 20px;border-radius:28px;font-weight:700}
+section{padding:55px 7%}
+.section-title{font-size:28px;margin-bottom:25px}
+.search{width:100%;padding:15px 18px;border-radius:14px;border:1px solid #332842;background:#130e1c;color:#fff;outline:none;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#130e1c;border:1px solid #292038;border-radius:18px;padding:20px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#71499d}
+.cover{height:150px;border-radius:13px;background:linear-gradient(135deg,#28153e,#8c55c5,#20152b);display:flex;align-items:center;justify-content:center;font-size:42px;margin-bottom:16px}
+.card h3{margin-bottom:7px}.meta{color:#9d95a8;font-size:13px}
+.listen{display:inline-block;margin-top:15px;color:#dcbcff;text-decoration:none;font-size:14px;font-weight:700}
+footer{padding:35px 7%;border-top:1px solid #211b30;color:#898192;font-size:13px;text-align:center}
+.note{color:#a89fb2;font-size:13px;line-height:1.6;margin-top:15px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">💜 BTS MUSIC HUB</div>
+  <nav><a href="#songs">Songs</a><a href="#albums">Albums</a><a href="#about">About</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <span class="badge">A FAN-MADE ARMY MUSIC HUB</span>
+  <h1>Every era.<br>Every memory.<br>💜</h1>
+  <p>Explore BTS songs and albums in one beautiful fan-made place. Use the listen buttons to open the music through official platforms.</p>
+  <a class="btn" href="#songs">Explore Songs ↓</a>
+</section>
+
+<section id="songs">
+  <h2 class="section-title">🎵 Popular Songs</h2>
+  <input id="search" class="search" placeholder="Search for a BTS song..." oninput="filterSongs()">
+  <div id="songGrid" class="grid"></div>
+</section>
+
+<section id="albums">
+  <h2 class="section-title">💿 Albums & Eras</h2>
+  <div class="grid">
+    <div class="card"><div class="cover">BE</div><h3>BE</h3><div class="meta">2020 · 8 tracks</div><a class="listen" href="https://ibighit.com/legacy/bts/be-en.html" target="_blank">Official album →</a></div>
+    <div class="card"><div class="cover">💜</div><h3>Proof</h3><div class="meta">2022 · Anthology · 48 tracks</div><a class="listen" href="https://ibighit.com/legacy/bts/proof-en.html" target="_blank">Official album →</a></div>
+    <div class="card"><div class="cover">🔥</div><h3>Young Forever</h3><div class="meta">2016 · Special album</div><a class="listen" href="https://ibighit.com/legacy/bts/hwayangyeonhwa-young_forever-en.html" target="_blank">Official album →</a></div>
+    <div class="card"><div class="cover">🧈</div><h3>Butter</h3><div class="meta">2021 · Single / CD single</div><a class="listen" href="https://ibighit.com/legacy/bts/butter-en.html" target="_blank">Official album →</a></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">💜 About this site</h2>
+  <p class="note">This is an unofficial fan-made BTS website. It does not host or upload copyrighted music. The listening buttons take you to official music/video sources.</p>
+</section>
+</main>
+
+<footer>Made with 💜 for ARMY · Unofficial fan project</footer>
+
+<script>
+const songs=[
+["Dynamite","BE / Digital Single","https://www.youtube.com/results?search_query=BTS+Dynamite+official+MV"],
+["Butter","Butter","https://www.youtube.com/results?search_query=BTS+Butter+official+MV"],
+["Permission to Dance","Butter CD Single","https://www.youtube.com/results?search_query=BTS+Permission+to+Dance+official+MV"],
+["Life Goes On","BE","https://www.youtube.com/results?search_query=BTS+Life+Goes+On+official+MV"],
+["Spring Day","You Never Walk Alone","https://www.youtube.com/results?search_query=BTS+Spring+Day+official+MV"],
+["DNA","Love Yourself: Her","https://www.youtube.com/results?search_query=BTS+DNA+official+MV"],
+["FAKE LOVE","Love Yourself: Tear","https://www.youtube.com/results?search_query=BTS+FAKE+LOVE+official+MV"],
+["Boy With Luv","Map of the Soul: Persona","https://www.youtube.com/results?search_query=BTS+Boy+With+Luv+official+MV"],
+["Dynamite (Acoustic Remix)","Dynamite","https://www.youtube.com/results?search_query=BTS+Dynamite+Acoustic+Remix"],
+["Yet To Come","Proof","https://www.youtube.com/results?search_query=BTS+Yet+To+Come+official+MV"],
+["Run BTS","Proof","https://www.youtube.com/results?search_query=BTS+Run+BTS+official"],
+["I NEED U","The Most Beautiful Moment in Life","https://www.youtube.com/results?search_query=BTS+I+Need+U+official+MV"]
+];
+
+function render(list){
+ const grid=document.getElementById("songGrid");
+ grid.innerHTML=list.map(s=>`<article class="card"><div class="cover">🎧</div><h3>${s[0]}</h3><div class="meta">${s[1]}</div><a class="listen" href="${s[2]}" target="_blank" rel="noopener">▶ Listen officially →</a></article>`).join("");
+}
+function filterSongs(){
+ const q=document.getElementById("search").value.toLowerCase();
+ render(songs.filter(s=>(s[0]+" "+s[1]).toLowerCase().includes(q)));
+}
+render(songs);
+</script>
+</body>
+</html>
